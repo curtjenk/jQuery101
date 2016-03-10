@@ -1,79 +1,16 @@
 <!DOCTYPE html>
 <html>
 	<head>
-
-	<!-- Homework jQuery functions to learn
-	addClass(),  removeClass(), animate(), delay(), slice(), fade(), fadein(), prepend()
-    Then go back an use jQuery on a past project.
-
-
-	-->
+		
 		<title>jQuery 101</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-		<script type="text/javascript">
-		
-		$(document).ready(registerListeners);
-		
-		function registerListeners()
-		{
-			$('button').click(function(event) {
-					var theTrick = $(this).attr('todo');
-					var thing = $('.thing');  
-				
-					if (theTrick != 'undefined') {
-						doTheTrick(theTrick);
-					}
-				})
-		}
-
-		function doTheTrick(theTrick) {
-
-					if (theTrick == 'hide') {
-						$('.thing').hide(1000);
-					} else if (theTrick === 'show') {
-						$('.thing').show(1000);
-					} else if (theTrick === 'toggle') {
-						$('.thing').toggle(1000);  //toggles show & hide for you
-					}
-					else if (theTrick === 'html') {
-/* replaces */			thing.html('<table border="2"<tr><td>Look. I\'m cell 1<td><td>Look. I\'m cell 2<td></tr></table>');  //same as innerHTML
-					}
-					else if (theTrick === 'append') {
-						thing.append('<div class="green">I have a friend now</div');  //
-					}
-					else if (theTrick === 'css') {
-						$('.thing').css( {'background-color':'orange',    /*using JSON format to specify multiple properties*/
-										   'color':'red',
-										   'font-size':'30px'}
-										);  
-					}
-					else if (theTrick === 'text') {
-						thing.text('Just some new text');  //replaces the text ... won't mess with the html element
-					} else if (theTrick === 'each') {
-						$('button').each(function () {  //like a foreach loop!
-								console.log($(this).text());
-						});
-					}
-		}
-
-		</script>
-
-
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<script type="text/javascript" src="js/scripts.js"></script>
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-		
 		<style>
-			.row {
-				margin-bottom: 5%;
-			}
-			.btn {
-				padding:10px 20px;
-			}
-			.green {
-				color: green;
-			}
+			
 		</style>
-
 	</head>
 	<body>
 		<div class="container">
@@ -91,7 +28,7 @@
 					<button class="btn btn-primary" todo="html">HTML</button>
 				</div>
 			</div>
-			<div class="row">	
+			<div class="row">
 				<div class="col-sm-3 text-center">
 					<button class="btn btn-primary" todo="append">Append</button>
 				</div>
@@ -103,6 +40,34 @@
 				</div>
 				<div class="col-sm-3 text-center">
 					<button class="btn btn-primary" todo="each">Each</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-3 text-center">
+					<button class="btn btn-primary" todo="addclass">AddClass</button>
+				</div>
+				<div class="col-sm-3 text-center">
+					<button class="btn btn-primary" todo="removeclass">RemoveClass</button>
+				</div>
+				<div class="col-sm-3 text-center">
+					<button class="btn btn-primary" todo="animate">Animate</button>
+				</div>
+				<div class="col-sm-3 text-center">
+					<button class="btn btn-primary" todo="delay">Delay</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-3 text-center">
+					<button class="btn btn-primary" todo="slice">Slice</button>
+				</div>
+				<div class="col-sm-3 text-center">
+					<button class="btn btn-primary" todo="fade">Fade</button>
+				</div>
+				<div class="col-sm-3 text-center">
+					<button class="btn btn-primary" todo="fadein">FadeIn</button>
+				</div>
+				<div class="col-sm-3 text-center">
+					<button class="btn btn-primary" todo="prepend">Prepend</button>
 				</div>
 			</div>
 			<div class="row">
