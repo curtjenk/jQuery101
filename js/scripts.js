@@ -14,7 +14,7 @@ function registerListeners() {
 			// console.log("call doTheTrick");
 			doTheTrick(thing, theTrick);
 		}
-	})
+	});
 }
 
 function doTheTrick(thing, theTrick) {
@@ -39,12 +39,17 @@ function doTheTrick(thing, theTrick) {
 		thing.text('Just some new text'); //replaces the text ... won't mess with the html element
 	} else if (theTrick === 'each') {
 		$('button').each(function() { //like a foreach loop!
-			console.log($(this).text());
+			//console.log($(this).text());
+			$('.each-container').append('<div class="col-md-3 green">' + $(this).text() + '</div'); //
+			setTimeout(function () {
+					$('.each-container').empty();
+			}, 3000);
+			
 		});
 	} else if (theTrick === 'addclass') {
 		thing.addClass('btn-danger');
-	} else if (theTrick === 'removeClass') {
-		thing.removeClass('btn-danger')
+	} else if (theTrick === 'removeclass') {
+		thing.removeClass('btn-danger');
 	} else if (theTrick === 'animate') {
 		thing.animate({
 			opacity: 0.25,
