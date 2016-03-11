@@ -52,16 +52,22 @@ function doTheTrick(thing, theTrick) {
 			height: "toggle"
 		}, 5000, function() {
 			// Animation complete.
+			thing.removeAttr('style');
 		});
 	} else if (theTrick === 'delay') {
+		console.log('delaying');
+		thing.slideUp(300).delay(1000).slideDown(300);
 
 	} else if (theTrick === 'slice') {
+		$( 'button' ).slice( 4, 8 ).css('background-color', 'red'); //text('Sliced!!! Reload the page');
 
-	} else if (theTrick === 'fade') {
+	} else if (theTrick === 'fadeout') {
+		thing.fadeOut( {duration: 1000, easing: 'linear'});
 
 	} else if (theTrick === 'fadein') {
+		thing.fadeIn(1500);
 
 	} else if (theTrick === 'prepend') {
-
+		thing.prepend('<div class="blue">Why ...</div'); //
 	}
 }
