@@ -14,7 +14,7 @@ function registerListeners() {
 			// console.log("call doTheTrick");
 			doTheTrick(thing, theTrick);
 		}
-	})
+	});
 }
 
 function doTheTrick(thing, theTrick) {
@@ -39,12 +39,17 @@ function doTheTrick(thing, theTrick) {
 		thing.text('Just some new text'); //replaces the text ... won't mess with the html element
 	} else if (theTrick === 'each') {
 		$('button').each(function() { //like a foreach loop!
-			console.log($(this).text());
+			//console.log($(this).text());
+			$('.each-container').append('<div class="col-md-3 green">' + $(this).text() + '</div'); //
+			setTimeout(function () {
+					$('.each-container').empty();
+			}, 3000);
+			
 		});
 	} else if (theTrick === 'addclass') {
 		thing.addClass('btn-danger');
-	} else if (theTrick === 'removeClass') {
-		thing.removeClass('btn-danger')
+	} else if (theTrick === 'removeclass') {
+		thing.removeClass('btn-danger');
 	} else if (theTrick === 'animate') {
 		thing.animate({
 			opacity: 0.25,
@@ -52,16 +57,22 @@ function doTheTrick(thing, theTrick) {
 			height: "toggle"
 		}, 5000, function() {
 			// Animation complete.
+			thing.removeAttr('style');
 		});
 	} else if (theTrick === 'delay') {
+		console.log('delaying');
+		thing.slideUp(300).delay(1000).slideDown(300);
 
 	} else if (theTrick === 'slice') {
+		$( 'button' ).slice( 4, 8 ).css('background-color', 'red'); //text('Sliced!!! Reload the page');
 
-	} else if (theTrick === 'fade') {
+	} else if (theTrick === 'fadeout') {
+		thing.fadeOut( {duration: 1000, easing: 'linear'});
 
 	} else if (theTrick === 'fadein') {
+		thing.fadeIn(1500);
 
 	} else if (theTrick === 'prepend') {
-
+		thing.prepend('<div class="blue">Why ...</div'); //
 	}
 }
